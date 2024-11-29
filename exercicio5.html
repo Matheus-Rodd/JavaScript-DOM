@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação de Acordo com a Hora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Saudação de Acordo com a Hora</h1>
+        <p id="saudacao"></p>
+        <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+
+    <script>
+        function saudacaoHora() {
+            var data = new Date();
+            var hora = data.getHours();
+            var saudacao = '';
+
+            if (hora >= 6 && hora < 12) {
+                saudacao = "Bom dia!";
+            } else if (hora >= 12 && hora < 18) {
+                saudacao = "Boa tarde!";
+            } else {
+                saudacao = "Boa noite!";
+            }
+
+            document.getElementById("saudacao").innerHTML = saudacao;
+        }
+
+        saudacaoHora();
+    </script>
+</body>
+</html>

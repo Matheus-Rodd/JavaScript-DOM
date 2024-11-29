@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Ano Bissexto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Ano Bissexto</h1>
+        <p>Digite um ano para verificar se ele é bissexto:</p>
+        <input type="number" id="ano">
+        <button onclick="verificarAno()">Verificar</button>
+        <p id="resultado"></p>
+        <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+
+    <script>
+        function verificarAno() {
+            var ano = parseInt(document.getElementById("ano").value);
+
+            if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+                document.getElementById("resultado").innerHTML = "O ano é bissexto!";
+            } else {
+                document.getElementById("resultado").innerHTML = "O ano não é bissexto.";
+            }
+        }
+    </script>
+</body>
+</html>

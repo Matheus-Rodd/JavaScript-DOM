@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo de Adivinhação</h1>
+        <p>Escolha um número entre 1 e 10</p>
+        <input type="number" id="palpite" min="1" max="10">
+        <button onclick="verificarPalpite()">Verificar</button>
+        <p id="resultado"></p>
+        <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+
+    <script>
+        function verificarPalpite() {
+            var palpiteUsuario = parseInt(document.getElementById("palpite").value);
+            var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+            
+            if (palpiteUsuario === numeroAleatorio) {
+                document.getElementById("resultado").innerHTML = "Parabéns, você acertou!";
+            } else {
+                document.getElementById("resultado").innerHTML = "Tente novamente!";
+            }
+        }
+    </script>
+</body>
+</html>

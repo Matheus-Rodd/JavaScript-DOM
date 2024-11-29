@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gorjeta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Gorjeta</h1>
+        <p>Digite o valor da conta e o nível de satisfação:</p>
+        <input type="number" id="valorConta" placeholder="Valor da Conta" min="0">
+        <select id="nivelSatisfacao">
+            <option value="bom">Bom (10%)</option>
+            <option value="otimo">Ótimo (15%)</option>
+            <option value="excelente">Excelente (20%)</option>
+        </select>
+        <button onclick="calcularGorjeta()">Calcular Gorjeta</button>
+        <p id="resultado"></p>
+        <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+
+    <script>
+        function calcularGorjeta() {
+            var valorConta = parseFloat(document.getElementById("valorConta").value);
+            var nivelSatisfacao = document.getElementById("nivelSatisfacao").value;
+
+            var gorjeta = 0;
+
+            switch (nivelSatisfacao) {
+                case 'bom':
+                    gorjeta = valorConta * 0.10;
+                    break;
+                case 'otimo':
+                    gorjeta = valorConta * 0.15;
+                    break;
+                case 'excelente':
+                    gorjeta = valorConta * 0.20;
+                    break;
+            }
+
+            var total = valorConta + gorjeta;
+
+            document.getElementById("resultado").innerHTML = `Gorjeta: R$ ${gorjeta.toFixed(2)}<br>Total a pagar: R$ ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

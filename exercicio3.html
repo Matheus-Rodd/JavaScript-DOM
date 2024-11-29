@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Média Escolar</h1>
+        <p>Digite as notas das quatro provas:</p>
+        <input type="number" id="prova1" placeholder="Nota da Prova 1" min="0" max="10">
+        <input type="number" id="prova2" placeholder="Nota da Prova 2" min="0" max="10">
+        <input type="number" id="prova3" placeholder="Nota da Prova 3" min="0" max="10">
+        <input type="number" id="prova4" placeholder="Nota da Prova 4" min="0" max="10">
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <p id="resultado"></p>
+        <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            var prova1 = parseFloat(document.getElementById("prova1").value);
+            var prova2 = parseFloat(document.getElementById("prova2").value);
+            var prova3 = parseFloat(document.getElementById("prova3").value);
+            var prova4 = parseFloat(document.getElementById("prova4").value);
+
+            var media = (prova1 + prova2 + prova3 + prova4) / 4;
+
+            if (media >= 7) {
+                document.getElementById("resultado").innerHTML = "Aprovado!";
+            } else if (media >= 5) {
+                document.getElementById("resultado").innerHTML = "Recuperação";
+            } else {
+                document.getElementById("resultado").innerHTML = "Reprovado";
+            }
+        }
+    </script>
+</body>
+</html>
